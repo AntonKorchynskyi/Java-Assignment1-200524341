@@ -1,4 +1,4 @@
-CREATE TABLE `javaassign1`.`studentinfo` (
+CREATE TABLE studentinfo` (
   `StudentID` INT NOT NULL,
   `Gender` VARCHAR(45) NULL,
   `EthnicGroup` VARCHAR(45) NULL,
