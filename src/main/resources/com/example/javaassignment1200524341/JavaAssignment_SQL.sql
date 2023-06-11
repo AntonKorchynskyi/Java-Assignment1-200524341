@@ -1,4 +1,4 @@
-CREATE TABLE studentinfo` (
+CREATE TABLE studentinfo (
   `StudentID` INT NOT NULL,
   `Gender` VARCHAR(45) NULL,
   `EthnicGroup` VARCHAR(45) NULL,
@@ -16,8 +16,9 @@ CREATE TABLE studentinfo` (
 
 /*
 To add data to the table it is required to run the script at the top ->
--> right click on the table name -> 'Table Data Import Wizard' -> choose my csv file (Expanded_data_with_more_features1.csv) 
+-> right click on the table name in MySQL workbench -> 'Table Data Import Wizard' -> choose my csv file (Expanded_data_with_more_features1.csv)
 and just click 'next' a few times
 */
 
-SELECT * FROM javaassign1.studentinfo;
+SELECT * FROM studentinfo
+GROUP BY StudentID;
