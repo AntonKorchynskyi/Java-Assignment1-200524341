@@ -8,10 +8,10 @@ import java.util.ArrayList;
 
 public class DBUtility {
 
-    private static String user = "Anton200524341";
-    private static String pass = "w786rvx4In";
+    private static String user = "root";
+    private static String pass = "123Imperial_123";
 
-    private static String connectURL = "jdbc:mysql://172.31.22.43:3306/Anton200524341";
+    private static String connectURL = "jdbc:mysql://localhost:3306/javaassign1";
 
     public static ArrayList<Student> retrieveStudentsFromDB(){
         ArrayList<Student> students = new ArrayList<>();
@@ -21,7 +21,7 @@ public class DBUtility {
 
         // try with resource block
         try(
-                Connection conn = DriverManager.getConnection(connectURL, user, pass);
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javaassign1", user, pass);
                 Statement statement = conn.createStatement();
                 ResultSet resultSet = statement.executeQuery(sql);
         )
@@ -41,7 +41,7 @@ public class DBUtility {
                 int readingScore = resultSet.getInt("ReadingScore");
                 int writingScore = resultSet.getInt("WritingScore");
 
-                Student newStudent = new Student(studentID, mathScore, readingScore, writingScore, nrSiblings, gender, ethnicGroup, lunchType, testPrep, parentMaritalStatus, practiceSport, isFirstChild, transportMeans);
+                Student newStudent = new Student(studentID, gender, ethnicGroup, lunchType, testPrep, parentMaritalStatus, practiceSport, isFirstChild, nrSiblings, transportMeans, mathScore, readingScore, writingScore);
                 students.add(newStudent);
             }
         }

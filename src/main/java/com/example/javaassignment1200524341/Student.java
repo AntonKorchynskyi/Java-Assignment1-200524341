@@ -1,10 +1,10 @@
 package com.example.javaassignment1200524341;
 
 public class Student {
-    private int StudentID, MathScore, ReadingScore, WritingScore, NrSiblings;
-    private String Gender, EthnicGroup, LunchType, TestPrep, ParentMaritalStatus, PracticeSport, IsFirstChild, TransportMeans;
+    private int studentID, mathScore, readingScore, writingScore, nrSiblings;
+    private String gender, ethnicGroup, lunchType, testPrep, parentMaritalStatus, practiceSport, isFirstChild, transportMeans;
 
-    public Student(int studentID, int mathScore, int readingScore, int writingScore, int nrSiblings, String gender, String ethnicGroup, String lunchType, String testPrep, String parentMaritalStatus, String practiceSport, String isFirstChild, String transportMeans) {
+    public Student(int studentID, String gender, String ethnicGroup, String lunchType, String testPrep, String parentMaritalStatus, String practiceSport, String isFirstChild, int nrSiblings, String transportMeans, int mathScore, int readingScore, int writingScore) {
         setStudentID(studentID);
         setMathScore(mathScore);
         setReadingScore(readingScore);
@@ -21,106 +21,106 @@ public class Student {
     }
 
     public int getStudentID() {
-        return StudentID;
+        return studentID;
     }
 
     public void setStudentID(int studentID) {
-        StudentID = studentID;
+        this.studentID = studentID;
     }
 
     public int getMathScore() {
-        return MathScore;
+        return mathScore;
     }
 
     public void setMathScore(int mathScore) {
-        MathScore = mathScore;
+        this.mathScore = mathScore;
     }
 
     public int getReadingScore() {
-        return ReadingScore;
+        return readingScore;
     }
 
     public void setReadingScore(int readingScore) {
-        ReadingScore = readingScore;
+        this.readingScore = readingScore;
     }
 
     public int getWritingScore() {
-        return WritingScore;
+        return writingScore;
     }
 
     public void setWritingScore(int writingScore) {
-        WritingScore = writingScore;
+        this.writingScore = writingScore;
     }
 
     public int getNrSiblings() {
-        return NrSiblings;
+        return nrSiblings;
     }
 
     public void setNrSiblings(int nrSiblings) {
-        NrSiblings = nrSiblings;
+        this.nrSiblings = nrSiblings;
     }
 
     public String getGender() {
-        return Gender;
+        return gender;
     }
 
     public void setGender(String gender) {
-        Gender = gender;
+        this.gender = gender;
     }
 
     public String getEthnicGroup() {
-        return EthnicGroup;
+        return ethnicGroup;
     }
 
     public void setEthnicGroup(String ethnicGroup) {
-        EthnicGroup = ethnicGroup;
+        this.ethnicGroup = ethnicGroup;
     }
 
     public String getLunchType() {
-        return LunchType;
+        return lunchType;
     }
 
     public void setLunchType(String lunchType) {
-        LunchType = lunchType;
+        this.lunchType = lunchType;
     }
 
     public String getTestPrep() {
-        return TestPrep;
+        return testPrep;
     }
 
     public void setTestPrep(String testPrep) {
-        TestPrep = testPrep;
+        this.testPrep = testPrep;
     }
 
     public String getParentMaritalStatus() {
-        return ParentMaritalStatus;
+        return parentMaritalStatus;
     }
 
     public void setParentMaritalStatus(String parentMaritalStatus) {
-        ParentMaritalStatus = parentMaritalStatus;
+        this.parentMaritalStatus = parentMaritalStatus;
     }
 
     public String getPracticeSport() {
-        return PracticeSport;
+        return practiceSport;
     }
 
     public void setPracticeSport(String practiceSport) {
-        PracticeSport = practiceSport;
+        this.practiceSport = practiceSport;
     }
 
     public String getIsFirstChild() {
-        return IsFirstChild;
+        return isFirstChild;
     }
 
     public void setIsFirstChild(String isFirstChild) {
-        IsFirstChild = isFirstChild;
+        this.isFirstChild = isFirstChild;
     }
 
     public String getTransportMeans() {
-        return TransportMeans;
+        return transportMeans;
     }
 
     public void setTransportMeans(String transportMeans) {
-        TransportMeans = transportMeans;
+        this.transportMeans = transportMeans;
     }
 }
