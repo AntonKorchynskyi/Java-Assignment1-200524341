@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1068.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javaassignment1200524341.StudentTableController">
+<AnchorPane prefHeight="800.0" prefWidth="1068.0" stylesheets="@../styles/stylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javaassignment1200524341.Controllers.StudentTableController">
    <children>
       <BorderPane layoutX="182.0" layoutY="71.0" prefHeight="800.0" prefWidth="1067.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
          <top>
-            <Label text="Student Info Table View" BorderPane.alignment="CENTER">
+            <Label fx:id="topLable" text="Student Info Table View" BorderPane.alignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>

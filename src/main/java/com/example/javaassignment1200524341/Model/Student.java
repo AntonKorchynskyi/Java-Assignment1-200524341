@@ -1,4 +1,4 @@
-package com.example.javaassignment1200524341;
+package com.example.javaassignment1200524341.Model;
 
 import java.util.Arrays;
 import java.util.List;

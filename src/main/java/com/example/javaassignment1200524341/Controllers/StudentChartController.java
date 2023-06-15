@@ -1,5 +1,8 @@
-package com.example.javaassignment1200524341;
+package com.example.javaassignment1200524341.Controllers;
 
+import com.example.javaassignment1200524341.Utilities.DBUtility;
+import com.example.javaassignment1200524341.Utilities.SceneChanger;
+import com.example.javaassignment1200524341.Model.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -7,6 +10,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.net.URL;
@@ -25,6 +29,9 @@ public class StudentChartController implements Initializable {
 
     @FXML
     private NumberAxis numberAxis;
+
+    @FXML
+    private Label topLable;
 
     /**
      * Changes the scene to the table view

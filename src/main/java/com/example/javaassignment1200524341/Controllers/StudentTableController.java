@@ -1,8 +1,12 @@
-package com.example.javaassignment1200524341;
+package com.example.javaassignment1200524341.Controllers;
 
+import com.example.javaassignment1200524341.Utilities.DBUtility;
+import com.example.javaassignment1200524341.Utilities.SceneChanger;
+import com.example.javaassignment1200524341.Model.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -49,6 +53,9 @@ public class StudentTableController implements Initializable {
 
     @FXML
     private TableColumn<Student, String> testPrepColumn;
+
+    @FXML
+    private Label topLable;
 
     @FXML
     private TableColumn<Student, String> transportColumn;

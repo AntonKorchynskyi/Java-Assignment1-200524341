@@ -1,0 +1,11 @@
+.button {
+    -fx-background-radius: 25px;
+}
+
+.root {
+    -fx-background-color: cornflowerblue;
+}
+
+#topLable {
+    -fx-text-fill: white;
+}

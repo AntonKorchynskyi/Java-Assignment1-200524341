@@ -1,5 +1,6 @@
-package com.example.javaassignment1200524341;
+package com.example.javaassignment1200524341.Utilities;
 
+import com.example.javaassignment1200524341.Model.Student;
 import javafx.scene.chart.XYChart;
 
 import java.sql.Connection;
