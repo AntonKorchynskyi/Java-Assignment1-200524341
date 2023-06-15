@@ -47,7 +47,7 @@ public class StudentChartController implements Initializable {
                 barChart.getData().clear();
                 categoryAxis.setLabel("Ethnic Groups");
                 numberAxis.setLabel("Number of People");
-                barChart.getData().addAll();
+                barChart.getData().addAll(DBUtility.findEthnicGroupNum());
                 break;
             case "Lunch Type":
                 break;

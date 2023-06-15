@@ -81,4 +81,32 @@ public class DBUtility {
         return null;
     }
 
+    public static ArrayList<XYChart.Series<String, Integer>> findEthnicGroupNum() {
+        ArrayList<XYChart.Series<String, Integer>> ethnicGArray = new ArrayList<>();
+        String sql = "SELECT count(ethnicGroup) as numEthnicG, ethnicGroup from studentinfo\n" +
+                     "GROUP BY ethnicGroup;";
+        try(
+                Connection conn = DriverManager.getConnection(connectURL, user, pass);
+                Statement statement = conn.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+        )
+        {
+            while (resultSet.next()) {
+                XYChart.Series<String, Integer> ethnicGroups = new XYChart.Series<>();
+                int ethnicGNum = resultSet.getInt("numEthnicG");
+                String ethnicGroup = resultSet.getString("ethnicGroup");
+                ethnicGroups.setName(ethnicGroup);
+                XYChart.Data<String, Integer> ethnicGBar = new XYChart.Data<>("", ethnicGNum);
+                ethnicGroups.getData().add(ethnicGBar);
+                ethnicGArray.add(ethnicGroups);
+            }
+            return ethnicGArray;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
 }
