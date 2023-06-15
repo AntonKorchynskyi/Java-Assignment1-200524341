@@ -304,4 +304,48 @@ public class DBUtility {
 
         return null;
     }
+
+    public static ArrayList<XYChart.Series<String, Integer>> findExamScoresNum() {
+        ArrayList<XYChart.Series<String, Integer>> examScoresArray = new ArrayList<>();
+
+        String sql = "SELECT avg(MathScore) as avgMath, avg(ReadingScore) as avgRead, avg(WritingScore) as avgWrite from studentinfo;";
+        try(
+                Connection conn = DriverManager.getConnection(connectURL, user, pass);
+                Statement statement = conn.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+        )
+        {
+            while (resultSet.next()) {
+                int mathScoreNum = resultSet.getInt("avgMath");
+                int readingScoresNum = resultSet.getInt("avgRead");
+                int writingScoresNum = resultSet.getInt("avgWrite");
+
+                XYChart.Series<String, Integer> mathScores = new XYChart.Series<>();
+                mathScores.setName("Math Exam");
+                XYChart.Data<String, Integer> mathScoreBar = new XYChart.Data<>("", mathScoreNum);
+                mathScores.getData().add(mathScoreBar);
+                examScoresArray.add(mathScores);
+
+                XYChart.Series<String, Integer> readingScores = new XYChart.Series<>();
+                readingScores.setName("Reading Exam");
+                XYChart.Data<String, Integer> readingScoreBar = new XYChart.Data<>("", readingScoresNum);
+                readingScores.getData().add(readingScoreBar);
+                examScoresArray.add(readingScores);
+
+                XYChart.Series<String, Integer> writingScores = new XYChart.Series<>();
+                writingScores.setName("Writing Exam");
+                XYChart.Data<String, Integer> writingScoreBar = new XYChart.Data<>("", writingScoresNum);
+                writingScores.getData().add(writingScoreBar);
+                examScoresArray.add(writingScores);
+
+                System.out.println("Im here");
+            }
+            return examScoresArray;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 }

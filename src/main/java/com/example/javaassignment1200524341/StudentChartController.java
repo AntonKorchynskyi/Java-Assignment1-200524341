@@ -91,10 +91,15 @@ public class StudentChartController implements Initializable {
                 numberAxis.setLabel("Number of People");
                 barChart.getData().addAll(DBUtility.findTransportMeansNum());
                 break;
-            case "Exam scores":
+            case "Exam Scores":
+                System.out.println("Im not here");
+                barChart.getData().clear();
+                categoryAxis.setLabel("Exam Scores");
+                numberAxis.setLabel("Average Grade");
+                barChart.getData().addAll(DBUtility.findExamScoresNum());
                 break;
             default:
-                System.out.println("Nothing interesting");
+                System.out.println("You should not get this notification. Something is wrong with the code");
                 break;
         }
     }
