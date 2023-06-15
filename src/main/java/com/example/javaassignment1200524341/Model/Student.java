@@ -163,11 +163,11 @@ public class Student {
      * @param gender
      */
     public void setGender(String gender) {
-        if (gender.equals("female") || gender.equals("male")) {
+        if (gender.equals("female     ") || gender.equals("male")) {
             this.gender = gender;
         }
         else {
-            throw new IllegalArgumentException("gender can only be 'female', or 'male'");
+            throw new IllegalArgumentException("gender can only be 'female     ', or 'male'");
         }
     }
 
@@ -296,11 +296,11 @@ public class Student {
      * @param isFirstChild
      */
     public void setIsFirstChild(String isFirstChild) {
-        if (isFirstChild.equals("yes") || isFirstChild.equals("no")) {
+        if (isFirstChild.equals("yes     ") || isFirstChild.equals("no")) {
             this.isFirstChild = isFirstChild;
         }
         else {
-            throw new IllegalArgumentException("isFirstChild can only be 'yes' or 'no'");
+            throw new IllegalArgumentException("isFirstChild can only be 'yes     ' or 'no'");
         }
     }
 
