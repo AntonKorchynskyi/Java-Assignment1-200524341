@@ -1,5 +1,7 @@
 package com.example.javaassignment1200524341;
 
+import javafx.scene.chart.XYChart;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -21,7 +23,7 @@ public class DBUtility {
 
         // try with resource block
         try(
-                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javaassign1", user, pass);
+                Connection conn = DriverManager.getConnection(connectURL, user, pass);
                 Statement statement = conn.createStatement();
                 ResultSet resultSet = statement.executeQuery(sql);
         )
@@ -49,6 +51,34 @@ public class DBUtility {
             e.printStackTrace();
         }
         return students;
+    }
+
+    public static ArrayList<XYChart.Series<String, Integer>> findGenderNum() {
+        ArrayList<XYChart.Series<String, Integer>> gendersArray = new ArrayList<>();
+        String sql = "SELECT count(gender) as numGender, gender from studentinfo\n" +
+                     "GROUP BY gender;";
+        try(
+                Connection conn = DriverManager.getConnection(connectURL, user, pass);
+                Statement statement = conn.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+        )
+        {
+            while (resultSet.next()) {
+                XYChart.Series<String, Integer> genders = new XYChart.Series<>();
+                int genderNum = resultSet.getInt("numGender");
+                String gender = resultSet.getString("gender");
+                genders.setName(gender);
+                XYChart.Data<String, Integer> genderBar = new XYChart.Data<>("", genderNum);
+                genders.getData().add(genderBar);
+                gendersArray.add(genders);
+            }
+            return gendersArray;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
 }

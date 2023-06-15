@@ -1,5 +1,9 @@
 package com.example.javaassignment1200524341;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Student {
     private int studentID, mathScore, readingScore, writingScore, nrSiblings;
     private String gender, ethnicGroup, lunchType, testPrep, parentMaritalStatus, practiceSport, isFirstChild, transportMeans;
@@ -122,5 +126,9 @@ public class Student {
 
     public void setTransportMeans(String transportMeans) {
         this.transportMeans = transportMeans;
+    }
+
+    public static List<String> findAllDescriptions() {
+        return Arrays.asList("Gender", "Ethnic Group", "Lunch Type", "Test Preparation", "Parent Marital Status", "Practice Sport", "Is First Child", "Number of Siblings", "Transport Means", "Exam scores");
     }
 }

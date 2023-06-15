@@ -7,6 +7,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -56,8 +57,8 @@ public class StudentTableController implements Initializable {
     private TableColumn<Student, Integer> writingColumn;
 
     @FXML
-    void toChartTableChanger(ActionEvent event) {
-
+    void toChartTableChanger(ActionEvent event) throws IOException {
+        SceneChanger.changeScenes(event, "student-chart-view.fxml", "Chart View");
     }
 
     @Override
