@@ -86,6 +86,10 @@ public class StudentChartController implements Initializable {
                 barChart.getData().addAll(DBUtility.findNrSiblingsNum());
                 break;
             case "Transport Means":
+                barChart.getData().clear();
+                categoryAxis.setLabel("Transport Means");
+                numberAxis.setLabel("Number of People");
+                barChart.getData().addAll(DBUtility.findTransportMeansNum());
                 break;
             case "Exam scores":
                 break;

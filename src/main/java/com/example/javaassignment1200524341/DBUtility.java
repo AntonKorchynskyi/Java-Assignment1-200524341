@@ -276,4 +276,32 @@ public class DBUtility {
 
         return null;
     }
+
+    public static ArrayList<XYChart.Series<String, Integer>> findTransportMeansNum() {
+        ArrayList<XYChart.Series<String, Integer>> transportMeansArray = new ArrayList<>();
+        String sql = "SELECT count(transportmeans) as numTransportMeans, transportmeans from studentinfo\n" +
+                "GROUP BY transportmeans;";
+        try(
+                Connection conn = DriverManager.getConnection(connectURL, user, pass);
+                Statement statement = conn.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+        )
+        {
+            while (resultSet.next()) {
+                XYChart.Series<String, Integer> transportsMeans = new XYChart.Series<>();
+                int transportMeansNum = resultSet.getInt("numTransportMeans");
+                String transportMeans = resultSet.getString("transportmeans");
+                transportsMeans.setName(transportMeans);
+                XYChart.Data<String, Integer> transportMeansBar = new XYChart.Data<>("", transportMeansNum);
+                transportsMeans.getData().add(transportMeansBar);
+                transportMeansArray.add(transportsMeans);
+            }
+            return transportMeansArray;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 }
