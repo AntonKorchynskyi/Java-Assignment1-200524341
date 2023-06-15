@@ -104,7 +104,7 @@ public class StudentChartController implements Initializable {
                 numberAxis.setLabel("Number of People");
                 barChart.getData().addAll(DBUtility.findTransportMeansNum());
                 break;
-            case "Exam Scores":
+            case "Average Exam Scores":
                 barChart.getData().clear();
                 categoryAxis.setLabel("Exam Scores");
                 numberAxis.setLabel("Average Grade");

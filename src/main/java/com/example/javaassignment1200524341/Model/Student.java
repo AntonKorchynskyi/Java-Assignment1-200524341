@@ -331,6 +331,6 @@ public class Student {
      * @return
      */
     public static List<String> findAllDescriptions() {
-        return Arrays.asList("Gender", "Ethnic Group", "Lunch Type", "Test Preparation", "Parent Marital Status", "Practice Sport", "Is First Child", "Number of Siblings", "Transport Means", "Exam Scores");
+        return Arrays.asList("Gender", "Ethnic Group", "Lunch Type", "Test Preparation", "Parent Marital Status", "Practice Sport", "Is First Child", "Number of Siblings", "Transport Means", "Average Exam Scores");
     }
 }
