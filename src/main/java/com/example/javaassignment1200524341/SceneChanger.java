@@ -10,6 +10,13 @@ import java.io.IOException;
 
 public class SceneChanger {
 
+    /**
+     * Changes the Scene
+     * @param actionEvent
+     * @param fxmlFileName
+     * @param viewTitle
+     * @throws IOException
+     */
     public static void changeScenes(ActionEvent actionEvent, String fxmlFileName, String viewTitle) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxmlFileName));
         Scene scene = new Scene(fxmlLoader.load());

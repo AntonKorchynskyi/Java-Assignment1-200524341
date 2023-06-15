@@ -8,6 +8,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Main extends Application {
+    /**
+     * Loads the table view scene
+     * @param stage
+     * @throws IOException
+     */
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("student-table-view.fxml"));
@@ -17,6 +22,10 @@ public class Main extends Application {
         stage.show();
     }
 
+    /**
+     * Launches the program
+     * @param args
+     */
     public static void main(String[] args) {
         launch();
     }

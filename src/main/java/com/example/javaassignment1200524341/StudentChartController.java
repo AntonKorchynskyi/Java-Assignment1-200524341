@@ -6,13 +6,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class StudentChartController implements Initializable {
@@ -29,11 +26,20 @@ public class StudentChartController implements Initializable {
     @FXML
     private NumberAxis numberAxis;
 
+    /**
+     * Changes the scene to the table view
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void tableViewButton(ActionEvent event) throws IOException {
         SceneChanger.changeScenes(event, "student-table-view.fxml", "Table View");
     }
 
+    /**
+     * Outputs the chart based on the user's choice from the combo box
+     * @param event
+     */
     @FXML
     void categoriesClick(ActionEvent event) {
         switch (categoriesComboBox.getSelectionModel().getSelectedItem()) {
@@ -103,6 +109,11 @@ public class StudentChartController implements Initializable {
         }
     }
 
+    /**
+     * Loads the combo box with the list of chart categories from the Student class
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         categoriesComboBox.getItems().addAll(Student.findAllDescriptions());

@@ -56,11 +56,22 @@ public class StudentTableController implements Initializable {
     @FXML
     private TableColumn<Student, Integer> writingColumn;
 
+    /**
+     * Changes scene to charts view
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void toChartTableChanger(ActionEvent event) throws IOException {
         SceneChanger.changeScenes(event, "student-chart-view.fxml", "Chart View");
     }
 
+    /**
+     * Sets the columns in the table, invokes the method which gets data from the database
+     * And adds it to the table
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         idColumn.setCellValueFactory(new PropertyValueFactory<>("studentID"));
@@ -78,6 +89,5 @@ public class StudentTableController implements Initializable {
         writingColumn.setCellValueFactory(new PropertyValueFactory<>("writingScore"));
 
         tableView.getItems().addAll(DBUtility.retrieveStudentsFromDB());
-
     }
 }
