@@ -109,4 +109,32 @@ public class DBUtility {
         return null;
     }
 
+    public static ArrayList<XYChart.Series<String, Integer>> findLunchTypeNum() {
+        ArrayList<XYChart.Series<String, Integer>> lunchTypeArray = new ArrayList<>();
+        String sql = "SELECT count(lunchtype) as numLunchType, lunchtype from studentinfo\n" +
+                "GROUP BY lunchtype;";
+        try(
+                Connection conn = DriverManager.getConnection(connectURL, user, pass);
+                Statement statement = conn.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+        )
+        {
+            while (resultSet.next()) {
+                XYChart.Series<String, Integer> lunchTypes = new XYChart.Series<>();
+                int lunchtypeNum = resultSet.getInt("numLunchType");
+                String lunchType = resultSet.getString("lunchtype");
+                lunchTypes.setName(lunchType);
+                XYChart.Data<String, Integer> ethnicGBar = new XYChart.Data<>("", lunchtypeNum);
+                lunchTypes.getData().add(ethnicGBar);
+                lunchTypeArray.add(lunchTypes);
+            }
+            return lunchTypeArray;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
 }
