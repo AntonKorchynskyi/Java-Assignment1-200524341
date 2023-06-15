@@ -193,4 +193,87 @@ public class DBUtility {
         return null;
     }
 
+    public static ArrayList<XYChart.Series<String, Integer>> findPracticeSportNum() {
+        ArrayList<XYChart.Series<String, Integer>> practiceSportArray = new ArrayList<>();
+        String sql = "SELECT count(practicesport) as numPracticeSport, practicesport from studentinfo\n" +
+                "GROUP BY practicesport;";
+        try(
+                Connection conn = DriverManager.getConnection(connectURL, user, pass);
+                Statement statement = conn.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+        )
+        {
+            while (resultSet.next()) {
+                XYChart.Series<String, Integer> practiceSports = new XYChart.Series<>();
+                int practiceSportNum = resultSet.getInt("numPracticeSport");
+                String practiceSport = resultSet.getString("practicesport");
+                practiceSports.setName(practiceSport);
+                XYChart.Data<String, Integer> practiceSportBar = new XYChart.Data<>("", practiceSportNum);
+                practiceSports.getData().add(practiceSportBar);
+                practiceSportArray.add(practiceSports);
+            }
+            return practiceSportArray;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static ArrayList<XYChart.Series<String, Integer>> findIsFirstChildNum() {
+        ArrayList<XYChart.Series<String, Integer>> isFirstChildArray = new ArrayList<>();
+        String sql = "SELECT count(isfirstchild) as numIsFirstChild, isfirstchild from studentinfo\n" +
+                "GROUP BY isfirstchild;";
+        try(
+                Connection conn = DriverManager.getConnection(connectURL, user, pass);
+                Statement statement = conn.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+        )
+        {
+            while (resultSet.next()) {
+                XYChart.Series<String, Integer> isFirstChildren = new XYChart.Series<>();
+                int isFirstChildNum = resultSet.getInt("numIsFirstChild");
+                String isFirstChild = resultSet.getString("isfirstchild");
+                isFirstChildren.setName(isFirstChild);
+                XYChart.Data<String, Integer> isFirstChildBar = new XYChart.Data<>("", isFirstChildNum);
+                isFirstChildren.getData().add(isFirstChildBar);
+                isFirstChildArray.add(isFirstChildren);
+            }
+            return isFirstChildArray;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static ArrayList<XYChart.Series<String, Integer>> findNrSiblingsNum() {
+        ArrayList<XYChart.Series<String, Integer>> nrSiblingsArray = new ArrayList<>();
+        String sql = "SELECT count(nrsiblings) as numNrSiblings, nrsiblings from studentinfo\n" +
+                "GROUP BY nrsiblings;";
+        try(
+                Connection conn = DriverManager.getConnection(connectURL, user, pass);
+                Statement statement = conn.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+        )
+        {
+            while (resultSet.next()) {
+                XYChart.Series<String, Integer> nrsSiblings = new XYChart.Series<>();
+                int nrSiblingsNum = resultSet.getInt("numNrSiblings");
+                String nrSiblings = resultSet.getString("nrsiblings");
+                nrsSiblings.setName(nrSiblings);
+                XYChart.Data<String, Integer> nrSiblingsBar = new XYChart.Data<>("", nrSiblingsNum);
+                nrsSiblings.getData().add(nrSiblingsBar);
+                nrSiblingsArray.add(nrsSiblings);
+            }
+            return nrSiblingsArray;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 }
