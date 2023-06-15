@@ -84,7 +84,8 @@ public class DBUtility {
     public static ArrayList<XYChart.Series<String, Integer>> findEthnicGroupNum() {
         ArrayList<XYChart.Series<String, Integer>> ethnicGArray = new ArrayList<>();
         String sql = "SELECT count(ethnicGroup) as numEthnicG, ethnicGroup from studentinfo\n" +
-                     "GROUP BY ethnicGroup;";
+                     "GROUP BY ethnicGroup\n" +
+                     "ORDER BY ethnicGroup;";
         try(
                 Connection conn = DriverManager.getConnection(connectURL, user, pass);
                 Statement statement = conn.createStatement();
@@ -112,7 +113,7 @@ public class DBUtility {
     public static ArrayList<XYChart.Series<String, Integer>> findLunchTypeNum() {
         ArrayList<XYChart.Series<String, Integer>> lunchTypeArray = new ArrayList<>();
         String sql = "SELECT count(lunchtype) as numLunchType, lunchtype from studentinfo\n" +
-                "GROUP BY lunchtype;";
+                     "GROUP BY lunchtype;";
         try(
                 Connection conn = DriverManager.getConnection(connectURL, user, pass);
                 Statement statement = conn.createStatement();
@@ -140,7 +141,7 @@ public class DBUtility {
     public static ArrayList<XYChart.Series<String, Integer>> findTestPrepNum() {
         ArrayList<XYChart.Series<String, Integer>> testPrepArray = new ArrayList<>();
         String sql = "SELECT count(testprep) as numTestPrep, testprep from studentinfo\n" +
-                "GROUP BY testprep;";
+                     "GROUP BY testprep;";
         try(
                 Connection conn = DriverManager.getConnection(connectURL, user, pass);
                 Statement statement = conn.createStatement();
@@ -168,7 +169,7 @@ public class DBUtility {
     public static ArrayList<XYChart.Series<String, Integer>> findParentMaritalStatusNum() {
         ArrayList<XYChart.Series<String, Integer>> parentMaritalStatusArray = new ArrayList<>();
         String sql = "SELECT count(parentmaritalstatus) as numParentMaritalStatus, parentmaritalstatus from studentinfo\n" +
-                "GROUP BY parentmaritalstatus;";
+                     "GROUP BY parentmaritalstatus;";
         try(
                 Connection conn = DriverManager.getConnection(connectURL, user, pass);
                 Statement statement = conn.createStatement();
@@ -196,7 +197,7 @@ public class DBUtility {
     public static ArrayList<XYChart.Series<String, Integer>> findPracticeSportNum() {
         ArrayList<XYChart.Series<String, Integer>> practiceSportArray = new ArrayList<>();
         String sql = "SELECT count(practicesport) as numPracticeSport, practicesport from studentinfo\n" +
-                "GROUP BY practicesport;";
+                     "GROUP BY practicesport;";
         try(
                 Connection conn = DriverManager.getConnection(connectURL, user, pass);
                 Statement statement = conn.createStatement();
@@ -224,7 +225,7 @@ public class DBUtility {
     public static ArrayList<XYChart.Series<String, Integer>> findIsFirstChildNum() {
         ArrayList<XYChart.Series<String, Integer>> isFirstChildArray = new ArrayList<>();
         String sql = "SELECT count(isfirstchild) as numIsFirstChild, isfirstchild from studentinfo\n" +
-                "GROUP BY isfirstchild;";
+                     "GROUP BY isfirstchild;";
         try(
                 Connection conn = DriverManager.getConnection(connectURL, user, pass);
                 Statement statement = conn.createStatement();
@@ -252,7 +253,8 @@ public class DBUtility {
     public static ArrayList<XYChart.Series<String, Integer>> findNrSiblingsNum() {
         ArrayList<XYChart.Series<String, Integer>> nrSiblingsArray = new ArrayList<>();
         String sql = "SELECT count(nrsiblings) as numNrSiblings, nrsiblings from studentinfo\n" +
-                "GROUP BY nrsiblings;";
+                     "GROUP BY nrsiblings\n" +
+                     "ORDER BY nrsiblings;";
         try(
                 Connection conn = DriverManager.getConnection(connectURL, user, pass);
                 Statement statement = conn.createStatement();
@@ -280,7 +282,7 @@ public class DBUtility {
     public static ArrayList<XYChart.Series<String, Integer>> findTransportMeansNum() {
         ArrayList<XYChart.Series<String, Integer>> transportMeansArray = new ArrayList<>();
         String sql = "SELECT count(transportmeans) as numTransportMeans, transportmeans from studentinfo\n" +
-                "GROUP BY transportmeans;";
+                     "GROUP BY transportmeans;";
         try(
                 Connection conn = DriverManager.getConnection(connectURL, user, pass);
                 Statement statement = conn.createStatement();
@@ -307,8 +309,8 @@ public class DBUtility {
 
     public static ArrayList<XYChart.Series<String, Integer>> findExamScoresNum() {
         ArrayList<XYChart.Series<String, Integer>> examScoresArray = new ArrayList<>();
-
         String sql = "SELECT avg(MathScore) as avgMath, avg(ReadingScore) as avgRead, avg(WritingScore) as avgWrite from studentinfo;";
+
         try(
                 Connection conn = DriverManager.getConnection(connectURL, user, pass);
                 Statement statement = conn.createStatement();
@@ -337,8 +339,6 @@ public class DBUtility {
                 XYChart.Data<String, Integer> writingScoreBar = new XYChart.Data<>("", writingScoresNum);
                 writingScores.getData().add(writingScoreBar);
                 examScoresArray.add(writingScores);
-
-                System.out.println("Im here");
             }
             return examScoresArray;
         }

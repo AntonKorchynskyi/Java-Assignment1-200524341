@@ -92,7 +92,6 @@ public class StudentChartController implements Initializable {
                 barChart.getData().addAll(DBUtility.findTransportMeansNum());
                 break;
             case "Exam Scores":
-                System.out.println("Im not here");
                 barChart.getData().clear();
                 categoryAxis.setLabel("Exam Scores");
                 numberAxis.setLabel("Average Grade");
