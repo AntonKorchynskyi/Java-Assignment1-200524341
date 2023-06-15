@@ -124,11 +124,67 @@ public class DBUtility {
                 int lunchtypeNum = resultSet.getInt("numLunchType");
                 String lunchType = resultSet.getString("lunchtype");
                 lunchTypes.setName(lunchType);
-                XYChart.Data<String, Integer> ethnicGBar = new XYChart.Data<>("", lunchtypeNum);
-                lunchTypes.getData().add(ethnicGBar);
+                XYChart.Data<String, Integer> lunchTypeBar = new XYChart.Data<>("", lunchtypeNum);
+                lunchTypes.getData().add(lunchTypeBar);
                 lunchTypeArray.add(lunchTypes);
             }
             return lunchTypeArray;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static ArrayList<XYChart.Series<String, Integer>> findTestPrepNum() {
+        ArrayList<XYChart.Series<String, Integer>> testPrepArray = new ArrayList<>();
+        String sql = "SELECT count(testprep) as numTestPrep, testprep from studentinfo\n" +
+                "GROUP BY testprep;";
+        try(
+                Connection conn = DriverManager.getConnection(connectURL, user, pass);
+                Statement statement = conn.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+        )
+        {
+            while (resultSet.next()) {
+                XYChart.Series<String, Integer> testPreps = new XYChart.Series<>();
+                int testPrepNum = resultSet.getInt("numTestPrep");
+                String testPrep = resultSet.getString("testprep");
+                testPreps.setName(testPrep);
+                XYChart.Data<String, Integer> testPrepBar = new XYChart.Data<>("", testPrepNum);
+                testPreps.getData().add(testPrepBar);
+                testPrepArray.add(testPreps);
+            }
+            return testPrepArray;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static ArrayList<XYChart.Series<String, Integer>> findParentMaritalStatusNum() {
+        ArrayList<XYChart.Series<String, Integer>> parentMaritalStatusArray = new ArrayList<>();
+        String sql = "SELECT count(parentmaritalstatus) as numParentMaritalStatus, parentmaritalstatus from studentinfo\n" +
+                "GROUP BY parentmaritalstatus;";
+        try(
+                Connection conn = DriverManager.getConnection(connectURL, user, pass);
+                Statement statement = conn.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+        )
+        {
+            while (resultSet.next()) {
+                XYChart.Series<String, Integer> parentMaritalStatuses = new XYChart.Series<>();
+                int parentMaritalStatusNum = resultSet.getInt("numParentMaritalStatus");
+                String parentMaritalStatus = resultSet.getString("parentmaritalstatus");
+                parentMaritalStatuses.setName(parentMaritalStatus);
+                XYChart.Data<String, Integer> parentMaritalStatusBar = new XYChart.Data<>("", parentMaritalStatusNum);
+                parentMaritalStatuses.getData().add(parentMaritalStatusBar);
+                parentMaritalStatusArray.add(parentMaritalStatuses);
+            }
+            return parentMaritalStatusArray;
         }
         catch (Exception e){
             e.printStackTrace();

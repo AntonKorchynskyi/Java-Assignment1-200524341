@@ -56,8 +56,16 @@ public class StudentChartController implements Initializable {
                 barChart.getData().addAll(DBUtility.findLunchTypeNum());
                 break;
             case "Test Preparation":
+                barChart.getData().clear();
+                categoryAxis.setLabel("Test Preparation Quality");
+                numberAxis.setLabel("Number of People");
+                barChart.getData().addAll(DBUtility.findTestPrepNum());
                 break;
             case "Parent Marital Status":
+                barChart.getData().clear();
+                categoryAxis.setLabel("Parent Marital Status");
+                numberAxis.setLabel("Number of People");
+                barChart.getData().addAll(DBUtility.findParentMaritalStatusNum());
                 break;
             case "Practice Sport":
                 break;
